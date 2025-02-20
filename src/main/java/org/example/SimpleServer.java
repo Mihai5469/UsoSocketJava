@@ -56,7 +56,7 @@ public class SimpleServer {
     /**
      * Metodo che fa che il server sia in attesa di un client
      */
-    private void runServer(){
+    public void runServer(){
         while (true){
             System.out.println("Server in attesa di richieste");
             try {
