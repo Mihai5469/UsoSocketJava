@@ -15,6 +15,7 @@ public class Main {
             throw new RuntimeException(e);
         }
 
+
         SimpleServer server = new SimpleServer(ip, port);
 
         server.runServer();
