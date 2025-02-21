@@ -71,7 +71,7 @@ public class SimpleServer {
                 //######################################################################################################
                 LocalDate data = LocalDate.now();
                 //System.out.println(data);
-                DateTimeFormatter formatData = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                DateTimeFormatter formatData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
                 String dataFormatata = formatData.format(data);
 
