@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Server;
 
 import java.io.*;
 import java.net.*;
@@ -65,29 +65,11 @@ public class SimpleServer {
             System.out.println("Server in attesa di richieste");
             try {
                 Socket s1 = server.accept();
-                System.out.println("Client connesso");
 
-                //Preparazione dello stream si output -> risposta per il client
-                //######################################################################################################
-                LocalDate data = LocalDate.now();
-                //System.out.println(data);
-                DateTimeFormatter formatData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-                String dataFormatata = formatData.format(data);
-
-                //System.out.println("La data formatata: " + dataFormatata);
+                GestoreClient clienti = new GestoreClient(s1);
+                clienti.start();
 
 
-                //######################################################################################################
-                OutputStream s1out = s1.getOutputStream();
-                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(s1out));
-
-                bw.write("Benvenuto sul server. Oggi è il " + dataFormatata + "\n");
-
-                bw.close();
-                s1.close();
-
-                System.out.println("Connessione terminata");
 
             } catch (IOException e) {
                 System.out.println(e.getMessage());
